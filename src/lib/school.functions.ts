@@ -172,7 +172,7 @@ export const teacherMyAllocations = createServerFn({ method: "GET" })
   .handler(async ({ context }) => {
     const { data, error } = await context.supabase
       .from("teacher_allocations")
-      .select("id, ano_lectivo, subjects(nome), turmas(classe, nome)")
+      .select("id, subject_id, turma_id, ano_lectivo, subjects(nome), turmas(classe, nome)")
       .eq("teacher_id", context.userId);
     if (error) throw error;
     return data;

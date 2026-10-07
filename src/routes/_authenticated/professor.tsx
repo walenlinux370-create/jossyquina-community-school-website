@@ -13,6 +13,8 @@ export const Route = createFileRoute("/_authenticated/professor")({
 
 type Allocation = {
   id: string;
+  subject_id: string;
+  turma_id: string;
   ano_lectivo: number;
   subjects: { nome: string } | null;
   turmas: { classe: number; nome: string } | null;

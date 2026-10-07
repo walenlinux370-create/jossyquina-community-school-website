@@ -1,0 +1,1 @@
+import type {MetadataRoute} from "next"; export default function robots():MetadataRoute.Robots{return{rules:{userAgent:"*",disallow:["/admin/","/professor/","/portal/","/api/"]},sitemap:"https://jossyquina.co.mz/sitemap.xml"}}

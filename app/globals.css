@@ -1,4 +1,0 @@
-@import "tailwindcss";
-:root { --navy:#172033; --gold:#e6bd55; --paper:#e6bd55; }
-html { scroll-behavior:smooth; }
-body { margin:0; background:var(--paper); color:#172033; }

@@ -1,0 +1,1 @@
+import type {MetadataRoute} from "next"; export default function sitemap():MetadataRoute.Sitemap{const base="https://jossyquina.co.mz"; return["","/sobre-nos","/oferta-formativa","/noticias","/contactos","/registo","/politicade-privacidade"].map(path=>({url:base+path,changeFrequency:"weekly",priority:path===""?1:.7}))}

@@ -19,6 +19,11 @@
  */
 
 @theme inline {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --color-gold: oklch(0.795 0.184 86.047);
+  --color-navy: oklch(0.208 0.042 265.755);
+  --color-paper: oklch(0.985 0.001 106.423);
+  --color-ink: oklch(0.21 0.034 264.665);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

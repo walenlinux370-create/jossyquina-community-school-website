@@ -1,0 +1,1 @@
+import "server-only"; import {z} from "zod"; export const serverEnv=z.object({SUPABASE_URL:z.string().url(),SUPABASE_SERVICE_ROLE_KEY:z.string().min(20),NEXT_PUBLIC_SITE_URL:z.string().url()}).parse({SUPABASE_URL:process.env.SUPABASE_URL,SUPABASE_SERVICE_ROLE_KEY:process.env.SUPABASE_SERVICE_ROLE_KEY,NEXT_PUBLIC_SITE_URL:process.env.NEXT_PUBLIC_SITE_URL});

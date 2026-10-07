@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ArrowRight, BookOpen, Clock3, MapPin, Phone, ShieldCheck, Users } from "lucide-react";
 
 import logoAsset from "@/assets/logo-jossyquina.jpeg.asset.json";
 import alunosImg from "@/assets/alunos.jpg";
@@ -7,20 +8,18 @@ import mapaImg from "@/assets/mapa.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Escola Comunitária Jossyquina — Mumemo 1, Marracuene" },
+      { title: "Escola Comunitária Jossyquina | Mumemo 1, Marracuene" },
       {
         name: "description",
         content:
-          "Ensino primário de qualidade no coração de Mumemo, Marracuene. Matrículas abertas para a 1ª classe — contacte 87 372 6610 ou 84 132 9460.",
+          "Escola Comunitária Jossyquina: educação primária de qualidade, ambiente seguro e compromisso com a comunidade em Mumemo 1, Marracuene.",
       },
-      { property: "og:title", content: "Escola Comunitária Jossyquina — Mumemo 1, Marracuene" },
+      { property: "og:title", content: "Escola Comunitária Jossyquina" },
       {
         property: "og:description",
-        content:
-          "Ensino primário de qualidade no coração de Mumemo, Marracuene. Matrículas abertas para a 1ª classe.",
+        content: "Educação primária de qualidade no coração de Mumemo 1, Marracuene.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
@@ -29,252 +28,292 @@ export const Route = createFileRoute("/")({
 const requisitos = [
   "Cópia autenticada do Bilhete de Identidade (BI)",
   "Cédula Pessoal ou Boletim de Nascimento",
-  "3 Fotografias tipo passe recentes",
+  "3 fotografias tipo passe recentes",
   "Documento de vacinação actualizado",
 ];
 
-function CheckBullet() {
-  return (
-    <div className="mt-1 flex size-4 shrink-0 items-center justify-center rounded bg-gold/20">
-      <div className="size-2 rounded-full bg-gold" />
-    </div>
-  );
-}
+const pilares = [
+  {
+    icon: BookOpen,
+    title: "Aprendizagem",
+    text: "Uma base sólida para que cada criança cresça com confiança e gosto pelo conhecimento.",
+  },
+  {
+    icon: Users,
+    title: "Comunidade",
+    text: "Uma escola próxima das famílias, construída para servir e fortalecer a comunidade.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Valores",
+    text: "Respeito, responsabilidade, solidariedade e dedicação fazem parte da nossa formação.",
+  },
+];
 
 function Index() {
   return (
     <div className="min-h-screen bg-paper font-sans text-ink">
-      {/* Navegação */}
-      <nav className="bg-navy py-4">
+      <div className="bg-navy px-6 py-2 text-center text-xs font-medium text-paper/80">
+        Matrículas 2026 abertas para a 1ª Classe · Mumemo 1, Marracuene
+      </div>
+
+      <nav className="sticky top-0 z-50 border-b border-paper/10 bg-navy/95 py-4 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
-          <div className="flex items-center gap-3">
+          <a href="#inicio" className="flex items-center gap-3">
             <img
               src={logoAsset.url}
               alt="Logótipo da Escola Comunitária Jossyquina"
-              className="size-10 rounded-full object-cover ring-1 ring-black/5"
+              className="size-11 rounded-full object-cover ring-2 ring-gold/40"
             />
-            <span className="font-medium tracking-tight text-paper">Escola Jossyquina</span>
-          </div>
-          <div className="hidden gap-8 text-sm text-paper/80 md:flex">
-            <a href="#inicio" className="transition-colors hover:text-gold">
-              Início
-            </a>
-            <a href="#sobre" className="transition-colors hover:text-gold">
-              Sobre Nós
-            </a>
-            <a href="#matricula" className="transition-colors hover:text-gold">
-              Matrículas
-            </a>
-            <a href="#contactos" className="transition-colors hover:text-gold">
-              Contactos
+            <div>
+              <p className="font-semibold tracking-tight text-paper">Escola Jossyquina</p>
+              <p className="text-[11px] text-paper/60">Mumemo 1 · Marracuene</p>
+            </div>
+          </a>
+
+          <div className="hidden items-center gap-7 text-sm text-paper/75 md:flex">
+            <a href="#sobre" className="transition-colors hover:text-gold">A Escola</a>
+            <a href="#matricula" className="transition-colors hover:text-gold">Matrículas</a>
+            <a href="#contactos" className="transition-colors hover:text-gold">Contactos</a>
+            <a href="/auth" className="rounded-full border border-paper/20 px-4 py-2 transition-colors hover:border-gold hover:text-gold">
+              Área reservada
             </a>
           </div>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section id="inicio" className="bg-gold py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="max-w-[56ch]">
-            <h1 className="mb-6 text-balance text-4xl font-semibold leading-tight text-navy lg:text-6xl">
-              Educação Primária de Qualidade no Coração de Mumemo
-            </h1>
-            <p className="mb-10 text-pretty text-lg text-navy/80 lg:text-xl">
-              A Escola Comunitária Jossyquina prepara o futuro das nossas crianças com valores
-              sólidos e compromisso com a excelência em Marracuene.
-            </p>
-            <a
-              href="#matricula"
-              className="inline-flex items-center rounded-md bg-navy px-6 py-3 text-sm font-medium text-paper ring-1 ring-navy transition-transform hover:bg-navy/90"
-            >
-              Matricule o seu filho
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Matrículas */}
-      <section id="matricula" className="bg-paper py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-12">
-            <h2 className="mb-4 text-balance text-3xl font-semibold text-navy">
-              Matrículas 2026
-            </h2>
-            <p className="max-w-[56ch] text-pretty text-sm text-zinc-600 sm:text-base">
-              Estamos abertos para inscrições na 1ª Classe. Garanta a vaga do seu educando com
-              antecedência.
-            </p>
-          </div>
-
-          <div className="grid items-start gap-12 md:grid-cols-2">
-            <div className="rounded-xl bg-zinc-50 p-8 ring-1 ring-black/5">
-              <h3 className="mb-6 text-lg font-semibold text-navy">Documentação Necessária</h3>
-              <ul className="space-y-4">
-                {requisitos.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <CheckBullet />
-                    <span className="text-sm text-zinc-700 sm:text-base">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="space-y-6">
-              <img
-                src={alunosImg}
-                alt="Alunos da Escola Comunitária Jossyquina no pátio da escola"
-                loading="lazy"
-                width={1024}
-                height={768}
-                className="aspect-[4/3] w-full rounded-xl object-cover outline-1 -outline-offset-1 outline-black/5"
-              />
-              <div className="rounded-xl bg-navy p-6 text-paper">
-                <p className="text-pretty text-sm leading-relaxed opacity-90">
-                  "A educação é a ferramenta mais poderosa que podemos dar aos nossos filhos para
-                  transformar a comunidade de Mumemo."
-                </p>
-                <p className="mt-4 text-xs font-medium uppercase tracking-wider text-gold">
-                  Direcção da Escola
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sobre / Comunidade */}
-      <section id="sobre" className="border-y border-zinc-200 bg-zinc-50 py-20">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-3">
-          <div className="md:col-span-2">
-            <h2 className="mb-6 text-balance text-3xl font-semibold text-navy">
-              Uma Escola Pela Comunidade
-            </h2>
-            <p className="mb-6 max-w-[56ch] text-pretty text-base text-zinc-700">
-              Localizada no Bairro Mumemo 1, a Escola Comunitária Jossyquina nasceu da vontade de
-              prover um ensino digno e acessível. Acreditamos que a escola é o centro da vida
-              comunitária, onde cultivamos não apenas o intelecto, mas o carácter e a cidadania
-              dos pequenos marracuenenses.
-            </p>
-            <div className="grid grid-cols-2 gap-8">
-              <div>
-                <h4 className="mb-2 font-semibold text-gold">Missão</h4>
-                <p className="text-sm leading-relaxed text-zinc-600">
-                  Formar cidadãos conscientes, críticos e preparados para os desafios do ensino
-                  secundário.
-                </p>
-              </div>
-              <div>
-                <h4 className="mb-2 font-semibold text-gold">Valores</h4>
-                <p className="text-sm leading-relaxed text-zinc-600">
-                  Respeito, solidariedade comunitária e dedicação ao saber tradicional e moderno.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="rounded-xl bg-white p-8 shadow-sm ring-1 ring-black/5">
-            <h3 className="mb-4 text-lg font-semibold text-navy">Horário de Funcionamento</h3>
-            <p className="mb-2 text-sm text-zinc-600">Segunda a Sexta-feira</p>
-            <p className="text-xl font-medium text-navy">07:30 — 15:30</p>
-            <div className="mt-8 border-t border-zinc-100 pt-8">
-              <h3 className="mb-4 text-lg font-semibold text-navy">Contactos Directos</h3>
-              <div className="space-y-2">
+      <main>
+        <section id="inicio" className="relative overflow-hidden bg-gold">
+          <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-[1.05fr_.95fr] lg:py-24">
+            <div>
+              <span className="inline-flex rounded-full bg-navy/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-navy">
+                Educação que transforma
+              </span>
+              <h1 className="mt-6 max-w-3xl text-balance text-5xl font-semibold leading-[1.02] tracking-tight text-navy sm:text-6xl lg:text-7xl">
+                O futuro começa numa boa escola.
+              </h1>
+              <p className="mt-6 max-w-2xl text-pretty text-lg leading-8 text-navy/75 sm:text-xl">
+                Na Escola Comunitária Jossyquina, ajudamos cada criança a aprender, crescer e
+                construir um futuro melhor para si, para a família e para a comunidade.
+              </p>
+              <div className="mt-9 flex flex-wrap gap-3">
+                <a
+                  href="#matricula"
+                  className="inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3.5 text-sm font-semibold text-paper shadow-lg shadow-navy/15 transition-transform hover:-translate-y-0.5"
+                >
+                  Ver como matricular
+                  <ArrowRight className="size-4" />
+                </a>
                 <a
                   href="tel:+258873726610"
-                  className="block font-medium text-navy transition-colors hover:text-gold"
+                  className="inline-flex items-center gap-2 rounded-full border border-navy/20 bg-paper/40 px-6 py-3.5 text-sm font-semibold text-navy transition-colors hover:bg-paper"
                 >
+                  <Phone className="size-4" />
                   +258 87 372 6610
                 </a>
-                <a
-                  href="tel:+258841329460"
-                  className="block font-medium text-navy transition-colors hover:text-gold"
-                >
-                  +258 84 132 9460
+              </div>
+              <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm font-medium text-navy/65">
+                <span className="inline-flex items-center gap-2"><MapPin className="size-4" />Mumemo 1</span>
+                <span className="inline-flex items-center gap-2"><Clock3 className="size-4" />07:30 — 15:30</span>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute -inset-4 rounded-[2rem] bg-paper/25 blur-2xl" />
+              <img
+                src={alunosImg}
+                alt="Alunos da Escola Comunitária Jossyquina"
+                width={1024}
+                height={768}
+                className="relative aspect-[4/3] w-full rounded-[2rem] object-cover shadow-2xl ring-4 ring-paper/60"
+              />
+              <div className="absolute -bottom-5 left-5 rounded-2xl bg-navy px-5 py-4 text-paper shadow-xl">
+                <p className="text-xs uppercase tracking-wider text-gold">Matrículas abertas</p>
+                <p className="mt-1 font-semibold">1ª Classe · 2026</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-b border-zinc-200 bg-paper py-10">
+          <div className="mx-auto grid max-w-7xl gap-6 px-6 sm:grid-cols-3">
+            {pilares.map(({ icon: Icon, title, text }) => (
+              <div key={title} className="rounded-2xl bg-zinc-50 p-6 ring-1 ring-black/5">
+                <Icon className="size-6 text-gold" />
+                <h2 className="mt-4 font-semibold text-navy">{title}</h2>
+                <p className="mt-2 text-sm leading-6 text-zinc-600">{text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="sobre" className="bg-paper py-20 lg:py-28">
+          <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[1.1fr_.9fr] lg:items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold">Sobre a escola</p>
+              <h2 className="mt-4 max-w-2xl text-balance text-4xl font-semibold tracking-tight text-navy">
+                Uma escola feita para estar perto das famílias.
+              </h2>
+              <p className="mt-6 max-w-2xl text-pretty leading-8 text-zinc-600">
+                Localizada no Bairro Mumemo 1, a Escola Comunitária Jossyquina trabalha para
+                proporcionar um ensino digno, acessível e orientado para o desenvolvimento
+                integral das crianças.
+              </p>
+              <div className="mt-8 grid gap-6 sm:grid-cols-2">
+                <div className="border-l-2 border-gold pl-5">
+                  <h3 className="font-semibold text-navy">Missão</h3>
+                  <p className="mt-2 text-sm leading-6 text-zinc-600">
+                    Formar cidadãos conscientes, responsáveis e preparados para os próximos
+                    desafios da sua educação.
+                  </p>
+                </div>
+                <div className="border-l-2 border-gold pl-5">
+                  <h3 className="font-semibold text-navy">Valores</h3>
+                  <p className="mt-2 text-sm leading-6 text-zinc-600">
+                    Respeito, solidariedade, responsabilidade e dedicação ao saber.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="rounded-3xl bg-navy p-8 text-paper shadow-xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-gold">No dia a dia</p>
+              <div className="mt-8 space-y-7">
+                <div>
+                  <p className="text-3xl font-semibold">07:30 — 15:30</p>
+                  <p className="mt-1 text-sm text-paper/60">Segunda a sexta-feira</p>
+                </div>
+                <div className="border-t border-paper/10 pt-7">
+                  <p className="text-sm leading-6 text-paper/70">
+                    Um ambiente de aprendizagem com acompanhamento próximo e uma forte ligação à
+                    comunidade de Marracuene.
+                  </p>
+                </div>
+                <a href="#contactos" className="inline-flex items-center gap-2 text-sm font-semibold text-gold hover:text-paper">
+                  Visitar a escola <ArrowRight className="size-4" />
                 </a>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Localização */}
-      <section id="contactos" className="bg-paper py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="flex flex-col items-center gap-12 md:flex-row">
-            <div className="w-full md:w-1/2">
-              <img
-                src={mapaImg}
-                alt="Mapa ilustrado da localização da escola no Bairro Mumemo 1"
-                loading="lazy"
-                width={1200}
-                height={800}
-                className="aspect-[16/9] w-full rounded-xl object-cover outline-1 -outline-offset-1 outline-black/5"
-              />
+        <section id="matricula" className="bg-zinc-50 py-20 lg:py-28">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="max-w-2xl">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold">Matrículas 2026</p>
+              <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-navy">
+                Prepare a entrada do seu educando.
+              </h2>
+              <p className="mt-5 leading-7 text-zinc-600">
+                As inscrições para a 1ª Classe estão abertas. Reúna a documentação abaixo e entre
+                em contacto com a escola para confirmar os próximos passos.
+              </p>
             </div>
-            <div className="w-full md:w-1/2">
-              <h2 className="mb-6 text-balance text-3xl font-semibold text-navy">Onde Estamos</h2>
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="mt-1 shrink-0">
-                    <div className="size-2 rounded-full bg-gold" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-navy">Endereço</h4>
-                    <p className="text-sm text-zinc-600">Bairro Mumemo 1, Q-3, Parcela nº 7</p>
-                  </div>
+
+            <div className="mt-12 grid gap-8 lg:grid-cols-[.9fr_1.1fr]">
+              <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-black/5">
+                <h3 className="text-xl font-semibold text-navy">Documentação necessária</h3>
+                <ul className="mt-7 space-y-5">
+                  {requisitos.map((item) => (
+                    <li key={item} className="flex gap-3 text-sm leading-6 text-zinc-700">
+                      <span className="mt-2 size-2 shrink-0 rounded-full bg-gold" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="tel:+258841329460"
+                  className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-navy px-5 py-3.5 text-sm font-semibold text-paper hover:bg-navy/90"
+                >
+                  <Phone className="size-4" />
+                  Falar com a escola
+                </a>
+              </div>
+
+              <div className="overflow-hidden rounded-3xl bg-navy shadow-xl">
+                <img
+                  src={alunosImg}
+                  alt="Crianças da Escola Comunitária Jossyquina"
+                  width={1024}
+                  height={768}
+                  className="h-64 w-full object-cover sm:h-80"
+                />
+                <div className="p-8 text-paper">
+                  <p className="text-sm font-semibold uppercase tracking-[0.16em] text-gold">Mensagem da Direcção</p>
+                  <blockquote className="mt-5 text-2xl font-medium leading-9">
+                    “A educação é uma ferramenta para transformar a vida das nossas crianças e a
+                    nossa comunidade.”
+                  </blockquote>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contactos" className="bg-paper py-20 lg:py-28">
+          <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold">Contactos</p>
+              <h2 className="mt-4 text-4xl font-semibold tracking-tight text-navy">Estamos em Mumemo 1.</h2>
+              <div className="mt-8 space-y-6">
                 <div className="flex gap-4">
-                  <div className="mt-1 shrink-0">
-                    <div className="size-2 rounded-full bg-gold" />
-                  </div>
+                  <MapPin className="mt-1 size-5 shrink-0 text-gold" />
                   <div>
-                    <h4 className="font-medium text-navy">Pontos de Referência</h4>
-                    <p className="text-pretty text-sm text-zinc-600">
-                      Perto do Comité do Partido Frelimo, entre o mercadinho, posto policial e a
-                      secretaria do bairro.
+                    <h3 className="font-semibold text-navy">Endereço</h3>
+                    <p className="mt-1 text-sm leading-6 text-zinc-600">
+                      Bairro Mumemo 1, Q-3, Parcela nº 7, Marracuene, Província de Maputo.
                     </p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="mt-1 shrink-0">
-                    <div className="size-2 rounded-full bg-gold" />
-                  </div>
+                  <Phone className="mt-1 size-5 shrink-0 text-gold" />
                   <div>
-                    <h4 className="font-medium text-navy">Distrito</h4>
-                    <p className="text-sm text-zinc-600">Marracuene, Província de Maputo</p>
+                    <h3 className="font-semibold text-navy">Telefone</h3>
+                    <div className="mt-1 space-y-1 text-sm">
+                      <a href="tel:+258873726610" className="block text-zinc-600 hover:text-navy">+258 87 372 6610</a>
+                      <a href="tel:+258841329460" className="block text-zinc-600 hover:text-navy">+258 84 132 9460</a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <img
+              src={mapaImg}
+              alt="Mapa ilustrado da localização da escola no Bairro Mumemo 1"
+              width={1200}
+              height={800}
+              className="aspect-[16/10] w-full rounded-3xl object-cover shadow-lg ring-1 ring-black/5"
+            />
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Rodapé */}
+        <section className="bg-gold py-12">
+          <div className="mx-auto flex max-w-7xl flex-col gap-5 px-6 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-2xl font-semibold text-navy">Quer saber mais?</p>
+              <p className="mt-1 text-sm text-navy/65">Fale connosco sobre a matrícula do seu educando.</p>
+            </div>
+            <a href="tel:+258873726610" className="inline-flex items-center justify-center gap-2 rounded-full bg-navy px-6 py-3 text-sm font-semibold text-paper">
+              Contactar a escola <ArrowRight className="size-4" />
+            </a>
+          </div>
+        </section>
+      </main>
+
       <footer className="bg-navy py-12 text-paper/60">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-8 flex flex-col items-start justify-between gap-8 border-b border-paper/10 pb-8 md:flex-row md:items-center">
+          <div className="flex flex-col gap-8 border-b border-paper/10 pb-8 md:flex-row md:items-center md:justify-between">
             <div>
-              <h3 className="mb-2 text-lg font-semibold text-paper">
-                Escola Comunitária Jossyquina
-              </h3>
-              <p className="text-sm">Mumemo 1 — Formando as gerações de amanhã.</p>
+              <p className="text-lg font-semibold text-paper">Escola Comunitária Jossyquina</p>
+              <p className="mt-1 text-sm">Mumemo 1 — Formando as gerações de amanhã.</p>
             </div>
-            <div className="flex gap-6">
-              <a href="#sobre" className="text-sm hover:text-gold">
-                Sobre Nós
-              </a>
-              <a href="#matricula" className="text-sm hover:text-gold">
-                Matrículas
-              </a>
-              <a href="#contactos" className="text-sm hover:text-gold">
-                Contactos
-              </a>
+            <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+              <a href="#sobre" className="hover:text-gold">A Escola</a>
+              <a href="#matricula" className="hover:text-gold">Matrículas</a>
+              <a href="#contactos" className="hover:text-gold">Contactos</a>
+              <a href="/auth" className="hover:text-gold">Área reservada</a>
             </div>
           </div>
-          <div className="flex flex-col justify-between gap-4 text-xs md:flex-row">
-            <p>© 2026 Escola Comunitária Jossyquina. Todos os direitos reservados.</p>
-            <p>Mumemo 1, Marracuene, Moçambique.</p>
-          </div>
+          <div className="pt-6 text-xs">© 2026 Escola Comunitária Jossyquina · Mumemo 1, Marracuene, Moçambique.</div>
         </div>
       </footer>
     </div>

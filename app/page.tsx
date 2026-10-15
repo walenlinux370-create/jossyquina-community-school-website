@@ -27,7 +27,7 @@ const portals = [
     symbol: "↗",
   },
   {
-    eyebrow: "PARA DOCENTES",
+    eyebrow: "PARA PROFESSORES",
     title: "Painel do Professor",
     description: "Aceda às turmas atribuídas e faça a gestão de presenças e materiais.",
     href: "/professor",

@@ -37,7 +37,9 @@ export async function proxy(request: NextRequest) {
       const redirectResponse = NextResponse.redirect(url);
 
       // Preserve any refreshed Supabase auth cookies.
-      redirectResponse.cookies.setAll(supabaseResponse.cookies.getAll());
+      supabaseResponse.cookies.getAll().forEach(({ name, value, options }) => {
+        redirectResponse.cookies.set(name, value, options);
+      });
 
       return redirectResponse;
     }
@@ -53,7 +55,9 @@ export async function proxy(request: NextRequest) {
     );
 
     // Preserve any refreshed Supabase auth cookies.
-    redirectResponse.cookies.setAll(supabaseResponse.cookies.getAll());
+    supabaseResponse.cookies.getAll().forEach(({ name, value, options }) => {
+      redirectResponse.cookies.set(name, value, options);
+    });
 
     return redirectResponse;
   }

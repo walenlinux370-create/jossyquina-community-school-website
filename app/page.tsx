@@ -98,7 +98,7 @@ export default function Home() {
 
           <div className="relative mx-auto w-full max-w-xl">
             <div className="absolute -inset-4 rounded-[2.5rem] bg-[#f8e9a7]/55 blur-2xl" />
-            <div className="relative overflow-hidden rounded-[2rem] border border-black/5 bg-[#fbf8ee] p-5 shadow-[0_28px_80px_rgba(23,23,23,0.12)] sm:p-7">
+            <div className="relative overflow-hidden rounded-[2rem] border border-black/5 bg-white p-5 shadow-[0_28px_80px_rgba(23,23,23,0.12)] sm:p-7">
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-black/45">Aprender · Crescer · Pertencer</span>
                 <span className="rounded-full bg-white px-3 py-1.5 text-[10px] font-bold text-black/60 ring-1 ring-black/5">JOSSYQUINA</span>
@@ -124,7 +124,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-black/5 bg-[#fffdf6]">
+      <section className="border-y border-black/5 bg-white">
         <div className="mx-auto grid max-w-7xl gap-4 px-5 py-7 sm:grid-cols-3 sm:px-8 sm:py-9">
           {pillars.map((pillar) => (
             <article key={pillar.number} className="flex gap-4 rounded-2xl p-4 transition hover:bg-white">

@@ -31,7 +31,7 @@ export default function AuthPage() {
     }
 
     // Remove unfinished enrollment factors so the administrator can restart setup.
-    for (const factor of factors?.totp?.filter((factor) => factor.status === "unverified") ?? []) {
+    for (const factor of factors?.totp?.filter((factor) => factor.status !== "verified") ?? []) {
       await supabase.auth.mfa.unenroll({ factorId: factor.id });
     }
 
